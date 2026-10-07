@@ -47,12 +47,20 @@ const selectedWork = [
 
 const loopStages = ["Research", "Prototype", "Engineer", "Deploy", "Measure", "Learn"];
 
+function NorthEastArrow({ className = "" }: { className?: string }) {
+  return (
+    <svg className={`icon-arrow ${className}`} viewBox="0 0 12 12" aria-hidden="true" focusable="false">
+      <path d="M2 10 10 2M4 2h6v6" />
+    </svg>
+  );
+}
+
 function TextLink({ href, children, tone = "dark" }: { href: string; children: React.ReactNode; tone?: "dark" | "light" }) {
   const external = href.startsWith("http");
   return (
     <a className={`text-link text-link--${tone}`} href={href} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>
       <span>{children}</span>
-      <span aria-hidden="true">↗</span>
+      <NorthEastArrow />
     </a>
   );
 }
@@ -91,7 +99,7 @@ export default function App() {
           <a href="#systems" onClick={closeMenu}>Systems</a>
           <a href="#studio" onClick={closeMenu}>Studio</a>
           <a href="#about" onClick={closeMenu}>About</a>
-          <a className="navigation__cta" href="https://cal.com/secondalgorithm" target="_blank" rel="noreferrer" onClick={closeMenu}>Start a conversation <span>↗</span></a>
+          <a className="navigation__cta" href="https://cal.com/secondalgorithm" target="_blank" rel="noreferrer" onClick={closeMenu}>Start a conversation <NorthEastArrow /></a>
         </nav>
         <button
           className={`menu ${menuOpen ? "menu--open" : ""}`}
@@ -150,7 +158,7 @@ export default function App() {
                   <span>{number}</span>
                   <h3>{title}</h3>
                   <p>{description}</p>
-                  <span className="research-item__arrow" aria-hidden="true">↗</span>
+                  <NorthEastArrow className="research-item__arrow" />
                 </article>
               ))}
             </div>
@@ -239,7 +247,7 @@ export default function App() {
                     <p className="work-row__detail">{project.detail}</p>
                     <div className="work-row__footer">
                       <span>{project.services}</span>
-                      <a href="https://cal.com/secondalgorithm" target="_blank" rel="noreferrer">Discuss a similar system <i aria-hidden="true">↗</i></a>
+                      <a href="https://cal.com/secondalgorithm" target="_blank" rel="noreferrer">Discuss a similar system <NorthEastArrow /></a>
                     </div>
                   </div>
                 </article>
@@ -302,8 +310,8 @@ export default function App() {
             <div className="contact__layout">
               <div>
                 <p>Tell us what you’re trying to solve. We’ll determine whether AI is actually the right answer.</p>
-                <a href="mailto:atulyamanikandan@gmail.com">atulyamanikandan@gmail.com ↗</a>
-                <a className="book-call" href="https://cal.com/secondalgorithm" target="_blank" rel="noreferrer">Book a call ↗</a>
+                <a className="inline-icon-link" href="mailto:atulyamanikandan@gmail.com">atulyamanikandan@gmail.com <NorthEastArrow /></a>
+                <a className="book-call inline-icon-link" href="https://cal.com/secondalgorithm" target="_blank" rel="noreferrer">Book a call <NorthEastArrow /></a>
               </div>
               <form action="mailto:atulyamanikandan@gmail.com" method="post" encType="text/plain">
                 <label><span>Name</span><input type="text" name="name" autoComplete="name" required /></label>
@@ -320,7 +328,7 @@ export default function App() {
         <div className="wrap footer__inner">
           <p>SECOND ALGORITHM</p>
           <span>Applied AI research, engineering, and products.</span>
-          <div><a href="#research">Research</a><a href="#systems">Systems</a><a href="mailto:atulyamanikandan@gmail.com">Email</a><a href="https://cal.com/secondalgorithm" target="_blank" rel="noreferrer">Book a call ↗</a><a href="#top">Back to top ↑</a></div>
+          <div><a href="#research">Research</a><a href="#systems">Systems</a><a href="mailto:atulyamanikandan@gmail.com">Email</a><a className="inline-icon-link" href="https://cal.com/secondalgorithm" target="_blank" rel="noreferrer">Book a call <NorthEastArrow /></a><a href="#top">Back to top ↑</a></div>
           <small>© 2026 SECOND ALGORITHM</small>
         </div>
       </footer>

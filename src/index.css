@@ -57,15 +57,17 @@ button { cursor: pointer; }
 }
 .navigation > a:hover::after { transform: scaleX(1); transform-origin: left; }
 .navigation__cta { display: flex; gap: 24px; margin-left: 12px; padding: 10px 0; border-bottom: 1px solid currentColor; }
-.navigation__cta span { transition: transform 180ms ease; }
-.navigation__cta:hover span { transform: translate(3px, -3px); }
+.navigation__cta .icon-arrow { transition: transform 180ms ease; }
+.navigation__cta:hover .icon-arrow { transform: translate(3px, -3px); }
 .menu { display: none; border: 0; background: transparent; }
 
 .text-link { display: flex; justify-content: space-between; gap: 32px; width: fit-content; min-width: 170px; padding: 11px 0; font-size: 0.78rem; border-bottom: 1px solid; }
-.text-link span:last-child { transition: transform 180ms ease; }
-.text-link:hover span:last-child { transform: translate(4px, -4px); }
+.text-link .icon-arrow { transition: transform 180ms ease; }
+.text-link:hover .icon-arrow { transform: translate(4px, -4px); }
 .text-link--light { color: var(--white); border-color: rgba(255,255,255,.5); }
 .text-link--dark { color: var(--ink); border-color: rgba(10,12,11,.45); }
+.icon-arrow { width: 12px; height: 12px; flex: 0 0 12px; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linecap: square; stroke-linejoin: miter; }
+.inline-icon-link { display: inline-flex !important; align-items: center; gap: 8px; }
 .marker { display: grid; grid-template-columns: 32px 1fr auto; gap: 16px; align-items: center; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; }
 .marker i { height: 1px; background: currentColor; opacity: 0.35; }
 
@@ -168,8 +170,8 @@ h2 em { color: #617266; font-weight: 400; }
 .work-row__footer { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-top: auto; padding-top: 42px; }
 .work-row__footer > span { color: var(--light-muted); font-size: .48rem; line-height: 1.6; letter-spacing: .11em; }
 .work-row__footer a { display: flex; gap: 20px; padding-bottom: 8px; border-bottom: 1px solid var(--light-rule); font-size: .68rem; white-space: nowrap; }
-.work-row__footer i { font-style: normal; transition: transform 180ms ease; }
-.work-row__footer a:hover i { transform: translate(3px,-3px); }
+.work-row__footer .icon-arrow { transition: transform 180ms ease; }
+.work-row__footer a:hover .icon-arrow { transform: translate(3px,-3px); }
 
 .studio__heading { display: grid; grid-template-columns: 2fr 1fr; gap: 100px; align-items: end; margin: 95px 0 110px; }
 .studio__heading > div p { margin: 0 0 30px; color: var(--light-muted); line-height: 1.7; }
