@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { STUDIO_DATA } from '../data/content';
+import { EASE_FLUID, SPRING_SOFT } from './motionTokens';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { scrollY } = useScroll();
+
+  // Only flips state when crossing the threshold, so scrolling doesn't re-render the nav.
+  useMotionValueEvent(scrollY, 'change', (y) => setScrolled(y > 24));
 
   const navLinks = [
     { label: 'Studio', href: '#studio' },
@@ -14,13 +21,18 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-black/10 shadow-xs">
+      <motion.header
+        className={`site-header fixed top-0 left-0 right-0 z-50 bg-white border-b border-black/10 ${scrolled ? 'is-scrolled' : ''}`}
+        initial={{ y: '-100%' }}
+        animate={{ y: 0 }}
+        transition={{ ...SPRING_SOFT, delay: 0.05 }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between gap-4">
           {/* Left: Circular Logo Badge + Company Name RIGHT BESIDE IT */}
           <a
             href="#hero"
             className="flex items-center gap-3 group transition-transform duration-200 active:scale-98 shrink-0"
-            aria-label="Second Algorithm Home"
+            aria-label="second algorithm home"
           >
             <div
               style={{ width: 38, height: 38, minWidth: 38, minHeight: 38 }}
@@ -28,13 +40,13 @@ export const Navbar: React.FC = () => {
             >
               <img
                 src="/assets/logo-dark.png"
-                alt="Second Algorithm"
+                alt="second algorithm"
                 style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                 loading="eager"
               />
             </div>
             <span className="font-display font-bold text-sm sm:text-base tracking-tight text-[#0D0F14] leading-none">
-              SECOND ALGORITHM
+              second algorithm
             </span>
           </a>
 
@@ -61,7 +73,7 @@ export const Navbar: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-2.5 rounded-full bg-[#0D0F14] hover:bg-black text-white text-xs font-mono font-bold tracking-wider uppercase transition-all shadow-xs shrink-0"
-              aria-label="Book a Call with Second Algorithm"
+              aria-label="Book a Call with second algorithm"
             >
               BOOK A CALL
             </a>
@@ -79,9 +91,16 @@ export const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Dropdown Menu (Opaque, clean, solid) */}
+        <AnimatePresence>
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-black/10 px-6 py-5 shadow-lg animate-in slide-in-from-top-2 duration-200">
-            <div className="flex flex-col gap-3">
+          <motion.div
+            className="md:hidden bg-white border-t border-black/10 shadow-lg overflow-hidden"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: EASE_FLUID }}
+          >
+            <div className="flex flex-col gap-3 px-6 py-5">
               {navLinks.map((item) => (
                 <a
                   key={item.href}
@@ -99,9 +118,10 @@ export const Navbar: React.FC = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
-      </header>
+        </AnimatePresence>
+      </motion.header>
     </>
   );
 };

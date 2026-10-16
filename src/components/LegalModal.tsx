@@ -41,7 +41,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
 
         <div className="flex items-center gap-2 text-xs font-mono text-[#1648E8] mb-3">
           <ShieldCheck className="w-4 h-4" />
-          <span>LEGAL COMPLIANCE // {STUDIO_DATA.name.toUpperCase()}</span>
+          <span>LEGAL COMPLIANCE // {STUDIO_DATA.name}</span>
         </div>
 
         {type === 'privacy' ? (
@@ -51,7 +51,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
             </h2>
             <div className="space-y-4 text-xs sm:text-sm text-gray-300 leading-relaxed font-sans">
               <p>
-                <strong>1. Information Collection:</strong> Second Algorithm ("we", "studio") collects client information solely for the purpose of scoping, executing, and delivering agreed-upon digital design and software commissions. We do not sell, rent, or trade client data under any circumstances.
+                <strong>1. Information Collection:</strong> second algorithm ("we", "studio") collects client information solely for the purpose of scoping, executing, and delivering agreed-upon digital design and software commissions. We do not sell, rent, or trade client data under any circumstances.
               </p>
               <p>
                 <strong>2. Telemetry & Analytics:</strong> Our web properties run privacy-preserving, cookie-free telemetry hosted at the edge. We do not track visitors across third-party websites or engage in behavioral advertising.

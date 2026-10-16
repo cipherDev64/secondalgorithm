@@ -50,13 +50,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) =>
                 >
                   <img
                     src="/assets/logo-dark.png"
-                    alt="Second Algorithm"
+                    alt="second algorithm"
                     style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                   />
                 </div>
                 <div>
                   <span className="font-display font-bold text-base tracking-tight text-white block leading-none">
-                    SECOND ALGORITHM
+                    second algorithm
                   </span>
                   <span className="font-mono text-[10px] text-gray-400 uppercase tracking-widest mt-1 block">
                     CREATIVE TECHNOLOGY · BENGALURU
@@ -65,7 +65,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) =>
               </div>
 
               <p className="text-sm text-gray-400 max-w-sm leading-relaxed pt-1">
-                Code with gravity. Interfaces with pulse. An independent digital engineering and design studio in Bengaluru building digital flagships that outlast the scroll.
+                Ideas deserve better than ordinary. An independent design and engineering studio in Bengaluru building websites, brand identities and the systems behind them.
               </p>
             </div>
 
@@ -215,7 +215,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) =>
         {/* Bottom Strip: Legal & Back to Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs font-mono text-gray-500">
           <div className="flex flex-wrap items-center gap-3 sm:gap-5">
-            <span className="text-gray-300">© {new Date().getFullYear()} Second Algorithm</span>
+            <span className="text-gray-300">© {new Date().getFullYear()} second algorithm</span>
             <span>·</span>
             <span className="text-gray-400">Bengaluru, India</span>
             <span>·</span>

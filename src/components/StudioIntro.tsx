@@ -1,5 +1,6 @@
 import React from 'react';
 import { Check, Sparkles, Code2, Compass } from 'lucide-react';
+import { Reveal } from './motion';
 
 export const StudioIntro: React.FC = () => {
   return (
@@ -11,12 +12,14 @@ export const StudioIntro: React.FC = () => {
             <div className="font-mono text-xs text-[#1648E8] uppercase tracking-widest font-semibold mb-3">
               [ 02 // STUDIO PHILOSOPHY ]
             </div>
-            <h2 className="font-display text-[clamp(2.2rem,4.5vw,4.2rem)] font-bold text-[#0D0F14] leading-[1.05] tracking-tight">
-              The Anti-Template <br />
-              <span className="font-serif-italic font-normal text-gray-600">
-                Manifesto.
-              </span>
-            </h2>
+            <Reveal>
+              <h2 className="font-display text-[clamp(2.2rem,4.5vw,4.2rem)] font-bold text-[#0D0F14] leading-[1.05] tracking-tight">
+                The Anti-Template <br />
+                <span className="font-serif-italic font-normal text-gray-600">
+                  Manifesto.
+                </span>
+              </h2>
+            </Reveal>
           </div>
 
           <p className="text-sm sm:text-base text-[#4E5364] max-w-md leading-relaxed">
@@ -36,7 +39,7 @@ export const StudioIntro: React.FC = () => {
             </p>
             <div className="flex items-center gap-3 text-xs font-mono text-gray-400">
               <span className="w-2 h-2 rounded-full bg-[#1648E8]"></span>
-              <span>SECOND ALGORITHM CREATIVE CHARTER · BENGALURU</span>
+              <span>second algorithm · CREATIVE CHARTER · BENGALURU</span>
             </div>
           </div>
         </div>
@@ -107,7 +110,7 @@ export const StudioIntro: React.FC = () => {
           </div>
         </div>
 
-        {/* Contrast Table: Second Algorithm vs Generic Template Agencies */}
+        {/* Contrast Table: second algorithm vs Generic Template Agencies */}
         <div className="mt-16 bg-white rounded-3xl p-6 sm:p-10 border border-black/10 shadow-sm">
           <div className="max-w-2xl mb-8">
             <span className="font-mono text-xs text-[#1648E8] uppercase tracking-wider font-semibold">
@@ -123,7 +126,7 @@ export const StudioIntro: React.FC = () => {
               <thead>
                 <tr className="border-b border-black/10 font-mono text-xs text-[#717684]">
                   <th className="py-3.5 pr-4">CAPABILITY & APPROACH</th>
-                  <th className="py-3.5 px-4 text-[#1648E8] font-bold">SECOND ALGORITHM</th>
+                  <th className="py-3.5 px-4 text-[#1648E8] font-bold">second algorithm</th>
                   <th className="py-3.5 pl-4 text-gray-400">GENERIC TEMPLATE / SAAS AGENCIES</th>
                 </tr>
               </thead>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowUpRight, CheckCircle2, Clock, Zap } from 'lucide-react';
 import { SERVICES } from '../data/content';
 import type { ServiceItem } from '../data/content';
+import { Reveal } from './motion';
 
 interface ServicesSectionProps {
   onSelectService?: (serviceTitle: string) => void;
@@ -22,12 +23,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
             <div className="font-mono text-xs text-[#1648E8] uppercase tracking-widest font-semibold mb-3">
               [ 03 // STUDIO CAPABILITIES ]
             </div>
-            <h2 className="font-display text-[clamp(2.2rem,4.5vw,4.2rem)] font-bold text-[#0D0F14] leading-[1.05] tracking-tight">
-              Crafted with Rigor. <br />
-              <span className="font-serif-italic font-normal text-gray-500">
-                Engineered to Convert.
-              </span>
-            </h2>
+            <Reveal>
+              <h2 className="font-display text-[clamp(2.2rem,4.5vw,4.2rem)] font-bold text-[#0D0F14] leading-[1.05] tracking-tight">
+                Crafted with Rigor. <br />
+                <span className="font-serif-italic font-normal text-gray-500">
+                  Engineered to Convert.
+                </span>
+              </h2>
+            </Reveal>
           </div>
 
           <p className="text-sm sm:text-base text-[#4E5364] max-w-md leading-relaxed">

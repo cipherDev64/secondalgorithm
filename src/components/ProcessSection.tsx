@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CheckCircle2, ChevronDown, ChevronUp, Clock, ShieldCheck } from 'lucide-react';
 import { PROCESS_STEPS, FAQS } from '../data/content';
 import type { ProcessStep } from '../data/content';
+import { Reveal } from './motion';
 
 export const ProcessSection: React.FC = () => {
   const [activeStepIndex, setActiveStepIndex] = useState<number>(0);
@@ -16,12 +17,14 @@ export const ProcessSection: React.FC = () => {
             <div className="font-mono text-xs text-[#1648E8] uppercase tracking-widest font-semibold mb-3">
               [ 05 // OUR PROCESS ]
             </div>
-            <h2 className="font-display text-[clamp(2.2rem,4.5vw,4.2rem)] font-bold text-[#0D0F14] leading-[1.05] tracking-tight">
-              How We Build. <br />
-              <span className="font-serif-italic font-normal text-gray-500">
-                From Diagnosis to Global Launch.
-              </span>
-            </h2>
+            <Reveal>
+              <h2 className="font-display text-[clamp(2.2rem,4.5vw,4.2rem)] font-bold text-[#0D0F14] leading-[1.05] tracking-tight">
+                How We Build. <br />
+                <span className="font-serif-italic font-normal text-gray-500">
+                  From Diagnosis to Global Launch.
+                </span>
+              </h2>
+            </Reveal>
           </div>
 
           <p className="text-sm sm:text-base text-[#4E5364] max-w-md leading-relaxed">

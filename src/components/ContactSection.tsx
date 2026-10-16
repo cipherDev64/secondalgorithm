@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpRight, Calendar } from 'lucide-react';
 import { STUDIO_DATA } from '../data/content';
+import { Reveal } from './motion';
 
 export const ContactSection: React.FC = () => {
   return (
@@ -21,12 +22,14 @@ export const ContactSection: React.FC = () => {
           </div>
 
           {/* Bold Centered Heading */}
-          <h2 className="font-display text-[clamp(2.4rem,5vw,4.5rem)] font-bold text-[#0D0F14] leading-[1.08] tracking-tight mb-6">
-            Ready to Discuss Business? <br />
-            <span className="font-serif-italic font-normal text-[#1648E8]">
-              Book a direct discovery call.
-            </span>
-          </h2>
+          <Reveal>
+            <h2 className="font-display text-[clamp(2.4rem,5vw,4.5rem)] font-bold text-[#0D0F14] leading-[1.08] tracking-tight mb-6">
+              Ready to Discuss Business? <br />
+              <span className="font-serif-italic font-normal text-[#1648E8]">
+                Book a direct discovery call.
+              </span>
+            </h2>
+          </Reveal>
 
           {/* Subtitle */}
           <p className="text-base sm:text-lg text-[#4E5364] max-w-xl leading-relaxed mb-10">
@@ -41,7 +44,7 @@ export const ContactSection: React.FC = () => {
               rel="noopener noreferrer"
               className="cta-book-call-btn group"
               style={{ padding: '18px 48px', minHeight: '64px' }}
-              aria-label="Book a Call with Second Algorithm on Cal.com"
+              aria-label="Book a Call with second algorithm on Cal.com"
             >
               <Calendar style={{ width: 20, height: 20, minWidth: 20 }} className="text-white/90 shrink-0" />
               <span style={{ margin: '0 4px', whiteSpace: 'nowrap' }}>BOOK A CALL ON CAL.COM</span>

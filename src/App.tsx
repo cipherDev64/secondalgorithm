@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { MotionConfig } from 'framer-motion';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Marquee } from './components/Marquee';
@@ -21,6 +22,8 @@ export function App() {
   };
 
   return (
+    // reducedMotion="user": transform animations are skipped when the OS asks for reduced motion.
+    <MotionConfig reducedMotion="user">
     <div className="min-h-screen bg-[#FAF8F5] text-[#0D0F14] selection:bg-[#0D0F14] selection:text-white flex flex-col justify-between">
       {/* Floating Translucent Navigation Bar */}
       <Navbar />
@@ -67,6 +70,7 @@ export function App() {
         onClose={() => setLegalModalType(null)}
       />
     </div>
+    </MotionConfig>
   );
 }
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowUpRight, Check, Smartphone, Monitor, Terminal, Building2, QrCode } from 'lucide-react';
 import { PROJECTS } from '../data/content';
 import type { ProjectItem } from '../data/content';
+import { Reveal } from './motion';
 
 interface WorkSectionProps {
   onOpenCaseStudy: (project: ProjectItem) => void;
@@ -32,12 +33,14 @@ export const WorkSection: React.FC<WorkSectionProps> = ({ onOpenCaseStudy }) => 
             <div className="font-mono text-xs text-[#FF5520] uppercase tracking-widest font-semibold mb-3">
               [ 04 // SELECTED COMMISSIONS ]
             </div>
-            <h2 className="font-display text-[clamp(2.2rem,4.5vw,4.5rem)] font-bold text-white leading-[1.05] tracking-tight">
-              Selected Work. <br />
-              <span className="font-serif-italic font-normal text-gray-400">
-                Show, Do Not Just Describe.
-              </span>
-            </h2>
+            <Reveal>
+              <h2 className="font-display text-[clamp(2.2rem,4.5vw,4.5rem)] font-bold text-white leading-[1.05] tracking-tight">
+                Selected Work. <br />
+                <span className="font-serif-italic font-normal text-gray-400">
+                  Show, Do Not Just Describe.
+                </span>
+              </h2>
+            </Reveal>
           </div>
 
           <p className="text-sm sm:text-base text-gray-400 max-w-md leading-relaxed">

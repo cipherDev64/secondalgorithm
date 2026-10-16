@@ -48,9 +48,9 @@ export interface ProcessStep {
 }
 
 export const STUDIO_DATA = {
-  name: "Second Algorithm",
+  name: "second algorithm",
   edition: "Creative Technology Studio",
-  tagline: "CODE WITH GRAVITY. INTERFACES WITH PULSE.",
+  tagline: "Ideas deserve better than ordinary.",
   subtagline: "Creative Technology Studio & Architectural Systems · Bengaluru",
   location: "Bengaluru · Available Worldwide",
   timezone: "Asia/Kolkata (IST)",
@@ -62,7 +62,7 @@ export const STUDIO_DATA = {
   instagram: "https://instagram.com/secondalgorithm",
   status: "Available for Commissions",
   leadParagraph:
-    "Second Algorithm is an independent digital studio based in Bengaluru operating at the intersection of architectural software engineering, expressive art direction, and autonomous workflows. We build digital flagships, web applications, and intelligent systems designed with lasting weight, tactile gravity, and undeniable pulse.",
+    "second algorithm is an independent digital studio based in Bengaluru operating at the intersection of architectural software engineering, expressive art direction, and autonomous workflows. We build digital flagships, web applications, and intelligent systems designed with lasting weight, tactile gravity, and undeniable pulse.",
   stats: [
     { label: "Design System Execution", value: "100%", sub: "Bespoke Code" },
     { label: "Performance Benchmark", value: "<0.4s", sub: "First Contentful Paint" },
@@ -100,7 +100,7 @@ export const PROJECTS: ProjectItem[] = [
     ],
     accentColor: "#D97706",
     bgTone: "#1A1713",
-    featuredQuote: "Second Algorithm turned our digital presence from a standard static brocure into our highest-converting acquisition engine.",
+    featuredQuote: "second algorithm turned our digital presence from a standard static brocure into our highest-converting acquisition engine.",
     mockupType: "workspace-portal",
     previewDetails: {
       status: "Production Live",
@@ -186,12 +186,12 @@ export const PROJECTS: ProjectItem[] = [
   {
     id: "second-algo-lab",
     title: "Autonomous Intelligence Lab",
-    client: "Second Algorithm Internal R&D",
+    client: "second algorithm Internal R&D",
     category: "Autonomous Systems · Multimodal Agent Workflows · Studio Core",
     year: "2026",
     tagline: "Internal operational intelligence engine running studio pipelines.",
     description:
-      "The proprietary engine powering Second Algorithm's own studio operations: autonomous client brief parsing, dynamic scope estimation, brand token generation, and multi-agent code scaffolding.",
+      "The proprietary engine powering second algorithm's own studio operations: autonomous client brief parsing, dynamic scope estimation, brand token generation, and multi-agent code scaffolding.",
     challenge:
       "Traditional studio overhead often slows down execution speed and consumes creative energy with administrative coordination.",
     solution:
@@ -429,9 +429,9 @@ export const PROCESS_STEPS: ProcessStep[] = [
 
 export const FAQS = [
   {
-    question: "How is Second Algorithm different from a traditional digital agency?",
+    question: "How is second algorithm different from a traditional digital agency?",
     answer:
-      "Most agencies either build pretty websites that load sluggishly with bloated templates, or build dry technical software with zero visual personality. Second Algorithm unites both: expressive, high-fashion art direction with relentless, sub-second software engineering and intelligent backend automation."
+      "Most agencies either build pretty websites that load sluggishly with bloated templates, or build dry technical software with zero visual personality. second algorithm unites both: expressive, high-fashion art direction with relentless, sub-second software engineering and intelligent backend automation."
   },
   {
     question: "Do you use WordPress or website builders like Wix?",
