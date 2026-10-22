@@ -15,7 +15,7 @@ export const ProcessSection: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16 pb-8 border-b border-black/10">
           <div>
             <div className="font-mono text-xs text-[#1648E8] uppercase tracking-widest font-semibold mb-3">
-              [ 05 // OUR PROCESS ]
+              [ 06 // OUR PROCESS ]
             </div>
             <Reveal>
               <h2 className="font-display text-[clamp(2.2rem,4.5vw,4.2rem)] font-bold text-[#0D0F14] leading-[1.05] tracking-tight">
@@ -86,7 +86,7 @@ export const ProcessSection: React.FC = () => {
             {(() => {
               const currentStep: ProcessStep = PROCESS_STEPS[activeStepIndex];
               return (
-                <div className="rounded-3xl bg-white p-7 sm:p-10 border border-black/10 shadow-lg">
+                <div className="rounded-none bg-white p-7 sm:p-10 border border-black/10">
                   <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-black/10">
                     <div className="flex items-center gap-2 text-xs font-mono text-[#1648E8] font-bold">
                       <Clock className="w-4 h-4" />

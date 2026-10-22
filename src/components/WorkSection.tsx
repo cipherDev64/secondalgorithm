@@ -31,7 +31,7 @@ export const WorkSection: React.FC<WorkSectionProps> = ({ onOpenCaseStudy }) => 
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-20 pb-8 border-b border-white/10">
           <div>
             <div className="font-mono text-xs text-[#FF5520] uppercase tracking-widest font-semibold mb-3">
-              [ 04 // SELECTED COMMISSIONS ]
+              [ 05 // SELECTED COMMISSIONS ]
             </div>
             <Reveal>
               <h2 className="font-display text-[clamp(2.2rem,4.5vw,4.5rem)] font-bold text-white leading-[1.05] tracking-tight">
@@ -58,7 +58,7 @@ export const WorkSection: React.FC<WorkSectionProps> = ({ onOpenCaseStudy }) => 
             return (
               <div
                 key={project.id}
-                className="rounded-3xl bg-[#14161F] border border-white/10 p-6 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden"
+                className="rounded-none bg-[#14161F] border border-white/10 p-6 sm:p-10 lg:p-12 relative overflow-hidden"
               >
                 {/* Project Header Bar */}
                 <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-white/10">

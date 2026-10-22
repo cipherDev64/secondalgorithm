@@ -74,7 +74,7 @@ export const ScopeEstimator: React.FC<ScopeEstimatorProps> = ({ onApplyEstimate 
       <div className="container-custom">
         <div className="max-w-3xl mb-12">
           <div className="font-mono text-xs text-[#1648E8] uppercase tracking-widest font-semibold mb-2">
-            [ 06 // INTERACTIVE SCOPE ESTIMATOR ]
+            [ 07 // INTERACTIVE SCOPE ESTIMATOR ]
           </div>
           <h2 className="font-display text-[clamp(2rem,3.8vw,3.6rem)] font-bold text-[#0D0F14] tracking-tight leading-tight">
             Estimate Your Sprint. <br />

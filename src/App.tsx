@@ -3,6 +3,7 @@ import { MotionConfig } from 'framer-motion';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Marquee } from './components/Marquee';
+import { FilmSection } from './components/FilmSection';
 import { StudioIntro } from './components/StudioIntro';
 import { ServicesSection } from './components/ServicesSection';
 import { WorkSection } from './components/WorkSection';
@@ -36,7 +37,10 @@ export function App() {
         {/* Tactile Marquee Cadence Ribbon */}
         <Marquee />
 
-        {/* 02. Studio Philosophy & Anti-Template Manifesto */}
+        {/* 02. Studio Film */}
+        <FilmSection />
+
+        {/* 03. Studio Philosophy & Anti-Template Manifesto */}
         <StudioIntro />
 
         {/* 03. Specialized Capabilities & Services Index */}

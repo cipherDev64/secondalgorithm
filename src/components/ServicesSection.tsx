@@ -21,7 +21,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16 pb-8 border-b border-black/10">
           <div>
             <div className="font-mono text-xs text-[#1648E8] uppercase tracking-widest font-semibold mb-3">
-              [ 03 // STUDIO CAPABILITIES ]
+              [ 04 // STUDIO CAPABILITIES ]
             </div>
             <Reveal>
               <h2 className="font-display text-[clamp(2.2rem,4.5vw,4.2rem)] font-bold text-[#0D0F14] leading-[1.05] tracking-tight">
@@ -97,7 +97,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
 
           {/* Right Column: High-Fidelity Execution Spec Board */}
           <div className="lg:col-span-7 lg:sticky lg:top-28">
-            <div className="rounded-3xl bg-white p-7 sm:p-10 border border-black/10 shadow-lg relative overflow-hidden">
+            <div className="rounded-none bg-white p-7 sm:p-10 border border-black/10 relative overflow-hidden">
               {/* Service Header */}
               <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-black/10">
                 <div className="flex items-center gap-3">

@@ -2,12 +2,9 @@ import React, { useRef, useState } from 'react';
 import {
   AnimatePresence,
   motion,
-  useMotionValue,
   useReducedMotion,
   useScroll,
-  useSpring,
-  useTransform,
-  type MotionValue
+  useTransform
 } from 'framer-motion';
 import { ArrowDown, ArrowUpRight, Calendar, Sparkles, Terminal, Layers, Cpu, Compass } from 'lucide-react';
 import { STUDIO_DATA } from '../data/content';
@@ -69,15 +66,8 @@ const TABS: { id: TabId; label: string; Icon: typeof Layers; color: string }[] =
   { id: 'automation', label: '04. Pipelines', Icon: Sparkles, color: '#10B981' }
 ];
 
-/* Floating capability chips orbiting the headline. depth scales pointer parallax. */
-const CHIPS = [
-  { label: 'Web experiences', Icon: Layers, color: '#1648E8', className: 'hero-chip--a', rotate: -6, depth: 1 },
-  { label: 'Brand direction', Icon: Compass, color: '#FF5520', className: 'hero-chip--b', rotate: 5, depth: 1.6 },
-  { label: 'Automation & AI', Icon: Cpu, color: '#8B5CF6', className: 'hero-chip--c', rotate: -3, depth: 0.7 }
-];
-
 const INTRO_DELAY = 0.25;
-const WORD_STAGGER = 0.07;
+const WORD_STAGGER = 0.09;
 
 const HEADLINE_LINES: { word: string; accent?: boolean }[][] = [
   [{ word: 'Ideas' }, { word: 'deserve' }, { word: 'better' }],
@@ -90,38 +80,6 @@ const HEADLINE = HEADLINE_LINES.map((line) =>
   line.map((w) => ({ ...w, delay: INTRO_DELAY + wordCount++ * WORD_STAGGER }))
 );
 const LAST_WORD_DELAY = INTRO_DELAY + (wordCount - 1) * WORD_STAGGER;
-
-interface FloatingChipProps {
-  chip: (typeof CHIPS)[number];
-  index: number;
-  pointerX: MotionValue<number>;
-  pointerY: MotionValue<number>;
-  scrollY: MotionValue<number>;
-}
-
-const FloatingChip: React.FC<FloatingChipProps> = ({ chip, index, pointerX, pointerY, scrollY }) => {
-  const x = useTransform(pointerX, (v) => v * 36 * chip.depth);
-  const pointerOffsetY = useTransform(pointerY, (v) => v * 28 * chip.depth);
-  const scrollOffsetY = useTransform(scrollY, (v) => v * -90 * chip.depth);
-  const y = useTransform(() => pointerOffsetY.get() + scrollOffsetY.get());
-  const { Icon } = chip;
-
-  return (
-    <motion.div className={`hero-chip ${chip.className}`} style={{ x, y }} aria-hidden="true">
-      <motion.div
-        className="hero-chip-inner"
-        initial={{ opacity: 0, scale: 0.85, rotate: 0 }}
-        animate={{ opacity: 1, scale: 1, rotate: chip.rotate }}
-        transition={{ ...SPRING_SOFT, delay: 1.05 + index * 0.12 }}
-      >
-        <span className="hero-chip-icon" style={{ backgroundColor: `${chip.color}14`, color: chip.color }}>
-          <Icon className="w-3.5 h-3.5" />
-        </span>
-        <span>{chip.label}</span>
-      </motion.div>
-    </motion.div>
-  );
-};
 
 export const Hero: React.FC<HeroProps> = ({ onExploreWork }) => {
   const [activeTab, setActiveTab] = useState<TabId>('experiences');
@@ -137,7 +95,6 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork }) => {
   const orbitRotate = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, 10]);
   const glowY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, 200]);
   const marksY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, 60]);
-  const chipScroll = useTransform(scrollYProgress, (v) => (reduce ? 0 : v));
 
   // The console tilts up into place as it enters, like a print laid flat on the desk.
   const { scrollYProgress: showcaseProgress } = useScroll({
@@ -147,30 +104,10 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork }) => {
   const showcaseRotateX = useTransform(showcaseProgress, [0, 1], reduce ? [0, 0] : [16, 0]);
   const showcaseScale = useTransform(showcaseProgress, [0, 1], reduce ? [1, 1] : [0.93, 1]);
 
-  // Pointer parallax for the chips: motion values only, so moving the mouse never re-renders.
-  const rawPointerX = useMotionValue(0);
-  const rawPointerY = useMotionValue(0);
-  const pointerX = useSpring(rawPointerX, { stiffness: 60, damping: 18 });
-  const pointerY = useSpring(rawPointerY, { stiffness: 60, damping: 18 });
-
-  const handlePointerMove = (e: React.PointerEvent<HTMLElement>) => {
-    if (reduce || e.pointerType !== 'mouse') return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    rawPointerX.set((e.clientX - rect.left) / rect.width - 0.5);
-    rawPointerY.set((e.clientY - rect.top) / rect.height - 0.5);
-  };
-
-  const handlePointerLeave = () => {
-    rawPointerX.set(0);
-    rawPointerY.set(0);
-  };
-
   return (
     <section
       id="hero"
       ref={sectionRef}
-      onPointerMove={handlePointerMove}
-      onPointerLeave={handlePointerLeave}
       className="hero-stage bg-subtle-grid"
     >
       {/* Grid fades out toward the edges so the composition reads as centred */}
@@ -212,23 +149,12 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork }) => {
             <span className="hero-mark hero-mark--br">INDEPENDENT<i /></span>
           </motion.div>
 
-          {CHIPS.map((chip, i) => (
-            <FloatingChip
-              key={chip.label}
-              chip={chip}
-              index={i}
-              pointerX={pointerX}
-              pointerY={pointerY}
-              scrollY={chipScroll}
-            />
-          ))}
-
           {/* Eyebrow */}
           <motion.div
             className="hero-eyebrow"
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: reduce ? 0 : 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: EASE_FLUID, delay: 0.1 }}
+            transition={{ duration: 1, ease: EASE_FLUID, delay: 0.1 }}
           >
             <span className="w-2 h-2 rounded-full bg-[#1648E8]" />
             <span>Creative technology studio · Bengaluru</span>
@@ -247,7 +173,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork }) => {
                           className={accent ? 'hero-word hero-word--accent font-serif-italic' : 'hero-word'}
                           initial={{ y: '110%' }}
                           animate={{ y: '0%' }}
-                          transition={{ duration: 1.1, ease: EASE_FLUID, delay }}
+                          transition={{ duration: 1.25, ease: EASE_FLUID, delay }}
                         >
                           {word}
                           {accent && (
